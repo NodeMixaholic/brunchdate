@@ -2,6 +2,7 @@ releases_url="https://dl.google.com/dl/edgedl/chromeos/recovery/recovery.json"
 UPDATEID=$RANDOM
 echo This update has an update code of $UPDATEID
 cd ~/Downloads
+[ -n "$(uname -m | grep "i.*86")" ] && { echo "ERROR: your device CPU is x86. Latest brunch is incompatible with x86.)"; exit 1; }
 mkdir "UPDATE_$UPDATEID"
 cd "UPDATE_$UPDATEID"
 
