@@ -6,7 +6,7 @@ cd ~/Downloads
 mkdir "UPDATE_$UPDATEID"
 cd "UPDATE_$UPDATEID"
 
-curl $releases_url -o releases.json 
+curl $releases_url -o recovery.json 
 string="$(grep -o '"url":.*/chromeos_.*_'${board}'_.*.bin\..*"' recovery.json | sort -V | tail -n 1)"
 info_string="$(grep -A 6 --max-count 1 "$string" ./recovery.json)"
 build_num="$(echo "$info_string" | grep --max-count 1 -o '"version":.*' | sed 's/^[[:blank:]]*//' | cut -d " " -f 2- | tr -d '",')"
